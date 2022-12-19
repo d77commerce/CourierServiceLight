@@ -1,0 +1,53 @@
+﻿@model CourierService.Core.Models.Orders.GetQuickQuoteModel
+
+@{
+    ViewBag.Title = "Quick quote";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.title</h2>
+<body>
+    <form method="post">
+        <hr />
+        <div>
+            <label asp-for="ParcelKg">Kg</label>
+            <input asp-for="ParcelKg" class="form-control" />
+            <span asp-validation-for="ParcelKg" class="text-bg-warning"></span>
+            <hr />
+            <h2>ADD Parcels</h2>
+            <label asp-for="Parts">How many pars is your parcel?</label>
+            <input asp-for="Parts" class="form-control" />
+            <span asp-validation-for="Parts" class="text-bg-warning"></span>
+        </div>
+        <div class="border-light">
+        </div>
+        <div>
+            <h2>Collection from</h2>
+            <label asp-for="SenderCountry">Country</label>
+            <input asp-for="SenderCountry" class="form-control" />
+            <span asp-validation-for="SenderCountry" class="text-bg-warning"></span>
+            <hr />
+            <label asp-for="SenderCity">Town</label>
+            <input asp-for="SenderCity" class="form-control" />
+            <span asp-validation-for="SenderCity" class="text-bg-warning"></span>
+        </div>
+        <hr />
+        <div class="border-light">
+            <h2>Delivery to</h2>
+        </div>
+        <div>
+            <label asp-for="ReceiverCountry">Country</label>
+            <input asp-for="ReceiverCountry" class="form-control" />
+            <span asp-validation-for="ReceiverCountry" class="text-bg-warning"></span>
+            <hr />
+            <label asp-for="ReceiverCity">Town</label>
+            <input asp-for="ReceiverCity" class="form-control" />
+            <span asp-validation-for="ReceiverCity" class="text-bg-warning"></span>
+        </div>
+        <hr />
+        <div class="text-end">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back to list</a>
+        </div>
+    </form>
+</body>

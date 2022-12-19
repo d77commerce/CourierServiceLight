@@ -19,4 +19,12 @@
     <ProjectReference Include="..\CourierService.Core\CourierService.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\Quote.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home\Quote.cshtml" />
+  </ItemGroup>
+
 </Project>

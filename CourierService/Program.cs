@@ -1,4 +1,5 @@
-using CourierService.Data;
+
+using CourierService.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,26 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddControllersWithViews();
+var orderConnectionString = builder.Configuration.GetConnectionString("OrderConnection");
+builder.Services.AddDbContext<OrderDbContext>(options =>
+    options.UseSqlServer(orderConnectionString));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddControllersWithViews();
+
+var trackingConnectionString = builder.Configuration.GetConnectionString("TrackingConnection");
+builder.Services.AddDbContext<TrackingDbContext>(options =>
+    options.UseSqlServer(trackingConnectionString));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddControllersWithViews();
+
+var administrationConnectionString = builder.Configuration.GetConnectionString("AdministrationConnection");
+builder.Services.AddDbContext<AdministrationDbContext>(options =>
+    options.UseSqlServer(administrationConnectionString));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
