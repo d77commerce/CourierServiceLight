@@ -11,8 +11,8 @@ namespace CourierService.Infrastructure.Data.Models.Orders
     public class GetQuickQuote
     {
         [Key]
-        public int QuickQuoteId { get; set; }
-       
+        public int Id { get; set; }
+        [Required]
         public double ParcelKg { get; set; }
         [Required]
         public int Parts { get; set; } = 1;

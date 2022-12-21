@@ -1,5 +1,8 @@
 
+using CourierService.Core.Contracts;
+using CourierService.Core.Services;
 using CourierService.Infrastructure.Data;
+using CourierService.Infrastructure.Data.Common.Order;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,28 +12,28 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddControllersWithViews();
+
 var orderConnectionString = builder.Configuration.GetConnectionString("OrderConnection");
 builder.Services.AddDbContext<OrderDbContext>(options =>
     options.UseSqlServer(orderConnectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddControllersWithViews();
+
+
 
 var trackingConnectionString = builder.Configuration.GetConnectionString("TrackingConnection");
 builder.Services.AddDbContext<TrackingDbContext>(options =>
     options.UseSqlServer(trackingConnectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddControllersWithViews();
+
 
 var administrationConnectionString = builder.Configuration.GetConnectionString("AdministrationConnection");
 builder.Services.AddDbContext<AdministrationDbContext>(options =>
     options.UseSqlServer(administrationConnectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddControllersWithViews();

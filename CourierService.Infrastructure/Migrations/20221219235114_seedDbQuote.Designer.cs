@@ -4,6 +4,7 @@ using CourierService.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CourierService.Infrastructure.Migrations
 {
     [DbContext(typeof(OrderDbContext))]
-    partial class OrderDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221219235114_seedDbQuote")]
+    partial class seedDbQuote
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,11 +50,11 @@ namespace CourierService.Infrastructure.Migrations
 
             modelBuilder.Entity("CourierService.Infrastructure.Data.Models.Orders.GetQuickQuote", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("QuickQuoteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuickQuoteId"), 1L, 1);
 
                     b.Property<double>("ParcelKg")
                         .HasColumnType("float");
@@ -76,14 +78,14 @@ namespace CourierService.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("QuickQuoteId");
 
                     b.ToTable("GetQuickQuotes");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            QuickQuoteId = 1,
                             ParcelKg = 10.0,
                             Parts = 2,
                             ReceiverCity = "Lovech",

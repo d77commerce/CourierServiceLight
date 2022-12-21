@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourierService.Infrastructure.Data.Common.Order
 {
-    internal interface IOrderRepository:IRepository
+    public interface IOrderRepository:IRepository
     {
     }
 }

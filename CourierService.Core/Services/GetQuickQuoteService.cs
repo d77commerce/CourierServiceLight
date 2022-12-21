@@ -13,13 +13,19 @@ namespace CourierService.Core.Services
 {
     public class GetQuickQuoteService :IGetQuickQuoteService
     {
-        private readonly OrderRepository repo;
+        private readonly IOrderRepository repository;
+        private readonly GetQuickQuoteModel getQuickQuoteModel;
 
-
-        public async Task<int> Create(GetQuickQuoteModel model)
+        public GetQuickQuoteService(IOrderRepository _repository, GetQuickQuoteModel getQuickQuoteModel)
+        {
+           this.repository = _repository;
+            this.getQuickQuoteModel = getQuickQuoteModel;
+        }
+        public async Task Create(GetQuickQuoteModel model)
         {
             var quote = new GetQuickQuote()
             {
+                
                 ParcelKg = model.ParcelKg,
                 Parts = model.Parts,
                 SenderCountry = model.SenderCountry,
@@ -30,8 +36,8 @@ namespace CourierService.Core.Services
 
             try
             {
-                await repo.AddAsync(quote);
-                await repo.SaveChangesAsync();
+                await repository.AddAsync(quote);
+                await repository.SaveChangesAsync();
             }
             catch (Exception ex)
             {
@@ -39,7 +45,6 @@ namespace CourierService.Core.Services
                 throw new ApplicationException("Database failed to save info", ex);
             }
 
-            return quote.QuickQuoteId;
         }
     }
 }

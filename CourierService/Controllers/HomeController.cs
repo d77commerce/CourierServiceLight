@@ -4,18 +4,21 @@ using System.Diagnostics;
 using CourierService.Core.Contracts;
 using CourierService.Core.Models.Orders;
 using CourierService.Core.Services;
+using CourierService.Infrastructure.Data.Common.Order;
 
 namespace CourierService.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly GetQuickQuoteService quoteService;
-        private readonly IGetQuickQuoteModel qouteModel;
+        private readonly GetQuickQuoteService quoteService ;
+        private readonly OrderRepository repository;
+       
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+
         }
 
         public IActionResult Index()
@@ -40,21 +43,21 @@ namespace CourierService.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Quote(GetQuickQuoteModel _model)
+        [ValidateAntiForgeryToken]
+        public async Task IActionResulQuote (GetQuickQuoteModel model)
         {
             if (ModelState.IsValid)
             {
-                var model = _model;
-               await quoteService.Create(model);
+            
+            await quoteService.Create(model);
+
                 
                // dbCategoryContext.Categories.Add(newObject);
               //  await dbCategoryContext.SaveChangesAsync();
                 //TempData["success"] = " create successfully Quote";
-                return RedirectToAction(nameof(Quote));
+                
             }
-
-            return View();
-
+            
         }
     }
 }

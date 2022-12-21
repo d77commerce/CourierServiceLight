@@ -8,9 +8,9 @@ namespace CourierService.Infrastructure.Data.Common.Administration
 {
     public class AdministrationRepository : Repository,IAdministrationRepository
     {
-        public AdministrationRepository(AdministrationDbContext context)
+        public AdministrationRepository(ApplicationDbContext context) 
         {
-            this.Context = context;
+            Context = context;
         }
     }
 }
