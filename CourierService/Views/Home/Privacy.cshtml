@@ -1,6 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Staff Place";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<button class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Staff" asp-action="Index">Change Exist Tracking Status</a>
+</button>
+<a class="page-scroll" href="/Home/Menu">Menus</a>
+<button class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Index">Call Courier</a>
+</button>

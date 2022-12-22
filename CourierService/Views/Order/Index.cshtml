@@ -1,0 +1,160 @@
+﻿@model CourierService.Core.Models.Orders.OrderModel
+
+@{
+    ViewBag.Title = "Order Courier";
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "OrderCourier";
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <section>
+            <form id="account" method="post">
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.ParcelKg" class="form-label"></label>
+                    <input asp-for="@Model.ParcelKg" class="form-control" />
+                    <span asp-validation-for="ParcelKg" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.Parts" class="form-label"></label>
+                    <input asp-for="@Model.Parts" class="form-control" />
+                    <span asp-validation-for="Parts" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.IsFragile" class="form-label"></label>
+                    <input asp-for="@Model.IsFragile"class="form-check" size="5" />
+                   
+                </div>
+                <div class="text-center mb-3">
+                    <h4>Your details</h4>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.SenderFirstName" class="form-label"></label>
+                    <input asp-for="@Model.SenderFirstName" class="form-control" />
+                    <span asp-validation-for="SenderFirstName" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.SenderLastName" class="form-label"></label>
+                    <input asp-for="@Model.SenderLastName" class="form-control" />
+                    <span asp-validation-for="SenderLastName" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.SenderPhone" class="form-label"></label>
+                    <input asp-for="@Model.SenderPhone" class="form-control" />
+                    <span asp-validation-for="SenderPhone" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.SenderMail" class="form-label"></label>
+                    <input asp-for="@Model.SenderMail" class="form-control" />
+                    <span asp-validation-for="SenderMail" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <h4>Collection from</h4>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.SenderCountry" class="form-label"></label>
+                    <input asp-for="@Model.SenderCountry" class="form-control" />
+                    <span asp-validation-for="SenderCountry" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.SenderCity" class="form-label"></label>
+                    <input asp-for="@Model.SenderCity" class="form-control" />
+                    <span asp-validation-for="SenderCity" class="text-danger"></span>
+                </div> 
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.SenderPostcode" class="form-label"></label>
+                    <input asp-for="@Model.SenderPostcode" class="form-control" />
+                    <span asp-validation-for="SenderPostcode" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.SenderStreet" class="form-label"></label>
+                    <input asp-for="@Model.SenderStreet" class="form-control" />
+                    <span asp-validation-for="SenderStreet" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.SenderAddressLine1" class="form-label"></label>
+                    <input asp-for="@Model.SenderAddressLine1" class="form-control" />
+                    <span asp-validation-for="SenderAddressLine1" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.SenderAddressLine2" class="form-label"></label>
+                    <input asp-for="@Model.SenderAddressLine2" class="form-control" />
+                    <span asp-validation-for="SenderAddressLine2" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.SenderCity" class="form-label"></label>
+                    <input asp-for="@Model.SenderCity" class="form-control" />
+                    <span asp-validation-for="SenderCity" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <h4>Delivery to</h4>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.ReceiverFirstName" class="form-label"></label>
+                    <input asp-for="@Model.ReceiverFirstName" class="form-control" />
+                    <span asp-validation-for="ReceiverFirstName" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.ReceiverLastName" class="form-label"></label>
+                    <input asp-for="@Model.ReceiverLastName" class="form-control" />
+                    <span asp-validation-for="ReceiverLastName" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.ReceiverPhone" class="form-label"></label>
+                    <input asp-for="@Model.ReceiverPhone" class="form-control" />
+                    <span asp-validation-for="ReceiverPhone" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                <h4>Delivery Address</h4>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.ReceiverCountry" class="form-label"></label>
+                    <input asp-for="@Model.ReceiverCountry" class="form-control" />
+                    <span asp-validation-for="ReceiverCountry" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.ReceiverCity" class="form-label"></label>
+                    <input asp-for="@Model.ReceiverCity" class="form-control" />
+                    <span asp-validation-for="ReceiverCity" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.ReceiverPostcode" class="form-label"></label>
+                    <input asp-for="@Model.ReceiverPostcode" class="form-control" />
+                    <span asp-validation-for="ReceiverPostcode" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.ReceiverStreet" class="form-label"></label>
+                    <input asp-for="@Model.ReceiverStreet" class="form-control" />
+                    <span asp-validation-for="ReceiverStreet" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.ReceiverAddressLine1" class="form-label"></label>
+                    <input asp-for="@Model.ReceiverAddressLine1" class="form-control" />
+                    <span asp-validation-for="ReceiverAddressLine1" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.ReceiverAddressLine2" class="form-label"></label>
+                    <input asp-for="@Model.ReceiverAddressLine2" class="form-control" />
+                    <span asp-validation-for="ReceiverAddressLine2" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <h4>Massage to Courier</h4>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.CustomerMessage" class="form-label"></label>
+                    <input asp-for="@Model.CustomerMessage" class="form-control" />
+                    <span asp-validation-for="CustomerMessage" class="text-danger"></span>
+                </div>
+                <div class="text-center">
+                    <button id="login-submit" type="submit" class="btn btn-primary">Quote</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
