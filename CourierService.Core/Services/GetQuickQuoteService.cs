@@ -14,13 +14,12 @@ namespace CourierService.Core.Services
     public class GetQuickQuoteService :IGetQuickQuoteService
     {
         private readonly IOrderRepository repository;
-        private readonly GetQuickQuoteModel getQuickQuoteModel;
+    
 
-        public GetQuickQuoteService(IOrderRepository _repository, GetQuickQuoteModel getQuickQuoteModel)
+        public GetQuickQuoteService(IOrderRepository _repository)
         {
            this.repository = _repository;
-            this.getQuickQuoteModel = getQuickQuoteModel;
-        }
+           }
         public async Task Create(GetQuickQuoteModel model)
         {
             var quote = new GetQuickQuote()
