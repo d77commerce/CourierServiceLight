@@ -1,0 +1,43 @@
+﻿@model CourierService.Core.Models.Orders.DeliveryModel
+
+@{
+    ViewBag.Title = "Delivery";
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Make Order to Delivey ";
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <section>
+            <form id="account" method="post">
+                <hr />
+
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.TrackingId" class="form-label"></label>
+                    <input asp-for="@Model.TrackingId" class="form-control" />
+                    <span asp-validation-for="TrackingId" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <h4>Massage to Courier</h4>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.OrderId" class="form-label"></label>
+                    <input asp-for="@Model.OrderId" class="form-select" />
+                    <span asp-validation-for="OrderId" class="text-danger"></span>
+                </div>
+                <div class="text-center mb-3">
+                    <label asp-for="@Model.UserId" class="form-label"></label>
+                    <input asp-for="@Model.UserId" class="form-select" />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+                <div class="text-center">
+                    <button id="login-submit" type="submit" class="btn btn-primary">Change to delivery</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>

@@ -8,5 +8,10 @@ namespace CourierService.Controllers
         {
             return View();
         }
+
+        public IActionResult Delivery()
+        {
+            return View();
+        }
     }
 }

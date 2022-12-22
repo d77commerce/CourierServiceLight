@@ -8,5 +8,15 @@ namespace CourierService.Controllers
         {
             return View();
         }
+
+        public IActionResult Manager()
+        {
+            return View();
+        }
+
+        public IActionResult AddWorker()
+        {
+            return View();
+        }
     }
 }

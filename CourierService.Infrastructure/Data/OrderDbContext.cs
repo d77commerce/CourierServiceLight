@@ -21,5 +21,5 @@ namespace CourierService.Infrastructure.Data
         public DbSet<Order> Orders { get; set; } = null!;
         public DbSet<GetQuickQuote> GetQuickQuotes { get; set; } = null!;
         public DbSet<Delivery> Deliveries { get; set; } = null!;
-    }
+      }
 }
