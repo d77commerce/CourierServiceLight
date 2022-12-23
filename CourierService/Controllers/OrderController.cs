@@ -1,16 +1,20 @@
-﻿using CourierService.Infrastructure.Data.Common.Order;
+﻿using CourierService.Core.Contracts;
+using CourierService.Infrastructure.Data.Common.Order;
+using CourierService.Infrastructure.Data.Models.Orders;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourierService.Controllers
 {
     public class OrderController : Controller
     {
-        private  readonly IOrderRepository orderRepository;
+        private  readonly IOrderServices services;
 
-        public OrderController(IOrderRepository _orderRepository)
+        public OrderController(IOrderServices _services)
         {
-            orderRepository=_orderRepository;
+            services = _services;
         }
+
         public IActionResult Index()
         {
             return View();
@@ -21,10 +25,13 @@ namespace CourierService.Controllers
             return View();
         }
 
+
+        [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllDelivery()
         {
-           var model = await orderRepository.get
-            return View();
+            var model = await services.GetAllOrders();
+            return View(model);
         }
     }
 }

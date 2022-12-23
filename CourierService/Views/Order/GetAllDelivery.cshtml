@@ -1,5 +1,35 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<CourierService.Infrastructure.Data.Models.Orders.Order>
+
 @{
+    ViewBag.Title = "All Delivery";
+    Layout = "_Layout";
 }
+
+@{
+    ViewData["Title"] = "All Delivery";
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <section>
+            @foreach (var i in Model)
+            {
+                <table>
+                    <tr>
+                        <td>@i.Id</td>
+                        <td>@i.SenderFirstName</td>
+                        <td>@i.SenderLastName</td>
+                        <td>@i.ParcelKg</td>
+                        <td>@i.Parts</td>
+                        <td>@i.ReceiverFirstName</td>
+                        <td>@i.ReceiverLastName</td>
+                        <td>@i.CustomerMessage</td>
+                        <td>@i.IsFragile</td>
+                    </tr>
+                </table>
+            }
+
+        </section>
+    </div>
+</div>
