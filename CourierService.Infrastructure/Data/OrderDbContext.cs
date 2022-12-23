@@ -9,17 +9,18 @@ namespace CourierService.Infrastructure.Data
         public OrderDbContext(DbContextOptions<OrderDbContext> options)
         : base(options)
         {
-            
+
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new GetQuickQuoteConfiguration());
+            builder.ApplyConfiguration(new OrderConfiguration());
             base.OnModelCreating(builder);
         }
 
         public DbSet<Order> Orders { get; set; } = null!;
         public DbSet<GetQuickQuote> GetQuickQuotes { get; set; } = null!;
         public DbSet<Delivery> Deliveries { get; set; } = null!;
-      }
+    }
 }
